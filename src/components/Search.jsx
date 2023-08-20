@@ -9,7 +9,10 @@ const Search = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      searchText.length > 0 ? getSearchSuggestion() : setShowSuggestion(false);
+      searchText.length > 0 && getSearchSuggestion();
+      searchText.length > 0
+        ? setShowSuggestion(true)
+        : setShowSuggestion(false);
     }, 200);
     return () => clearTimeout(timer);
   }, [searchText]);
@@ -33,7 +36,7 @@ const Search = () => {
           className="w-full outline-none px-2"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          onFocus={() => setShowSuggestion(true)}
+          onFocus={() => searchText.length > 0 && setShowSuggestion(true)}
         />
       </div>
 
