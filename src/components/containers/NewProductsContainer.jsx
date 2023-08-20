@@ -4,15 +4,17 @@ import ProductCard from "../ProductCard";
 import { Link } from "react-router-dom";
 
 const NewProductsContainer = () => {
-  const { isLoading, allProducts } = useAllProducts(5);
+  const { isLoading, allProducts } = useAllProducts(8);
 
   if (isLoading) {
     return <h1>loading</h1>;
   }
   return (
-    <section className="h-screen">
-      <h1 className="text-center">New arrived</h1>
-      <div className="flex flex-wrap justify-center">
+    <section className="my-2">
+      <h1 className="text-center font-bold text-2xl underline mb-2">
+        Recent Products
+      </h1>
+      <div className="flex mx-auto flex-wrap justify-center w-[70vw]">
         {allProducts.map((item) => (
           <Link key={item.id} to={"/products/" + item.id}>
             <ProductCard data={item} />

@@ -9,6 +9,8 @@ import MainContainer from "./components/containers/MainContainer.jsx";
 import ProductsDetailsContainer from "./components/containers/ProductsDetailsContainer.jsx";
 import ProductsContainer from "./components/containers/ProductsContainer.jsx";
 import CartContainer from "./components/containers/CartContainer.jsx";
+import SpecificProducts from "./components/categories/SpecificProducts.jsx";
+import MultiCategoryProducts from "./components/categories/MultiCategoryProducts.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,43 @@ const router = createBrowserRouter([
       {
         path: "products/",
         element: <ProductsContainer />,
+      },
+      {
+        path: "grocery/",
+        element: <SpecificProducts category="groceries" />,
+      },
+      {
+        path: "mobiles/",
+        element: <SpecificProducts category="smartphones" />,
+      },
+      {
+        path: "fashion/",
+        element: (
+          <MultiCategoryProducts
+            categoryList={[
+              "fragrances",
+              "skincare",
+              "tops",
+              "womens-dresses",
+              "womens-shoes",
+              "mens-shirts",
+              "mens-shoes",
+              "mens-watches",
+              "womens-watches",
+              "womens-bags",
+              "womens-jewellery",
+              "sunglasses",
+            ]}
+          />
+        ),
+      },
+      {
+        path: "electronics/",
+        element: (
+          <MultiCategoryProducts
+            categoryList={["lighting", "laptops", "automotive"]}
+          />
+        ),
       },
       {
         path: "products/:productId",

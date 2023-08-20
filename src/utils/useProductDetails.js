@@ -6,7 +6,7 @@ const useProductDetails = (productId) => {
 
   useEffect(() => {
     getProductDetails();
-  }, []);
+  }, [productId]);
 
   const getProductDetails = async () => {
     const res = await fetch("https://dummyjson.com/products/" + productId);

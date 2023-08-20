@@ -16,7 +16,7 @@ const ProductsDetailsContainer = () => {
   return (
     <div className="my-20 mx-80 select-none flex h-screen">
       {/* gellary section */}
-      <section className="w-2/4 border h-[60vh]">
+      <section className="w-2/4 border h-[66vh]">
         <div>
           <img
             ref={targetImage}
@@ -31,7 +31,7 @@ const ProductsDetailsContainer = () => {
                 src={item}
                 alt="an image"
                 className="h-24 w-24 m-2 p-2 border object-contain cursor-pointer"
-                onClick={(e) => {
+                onMouseOver={(e) => {
                   targetImage.current.src = e.target.src;
                 }}
               />
