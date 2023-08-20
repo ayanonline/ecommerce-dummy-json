@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const useSpecificProducts = (category) => {
   const [allProducts, setAllProducts] = useState(null);
   const [isLoading, setIsloading] = useState(true);
-  console.log(category);
+
   useEffect(() => {
     getAllProducts();
   }, []);

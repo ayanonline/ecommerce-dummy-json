@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import ProductCard from "../ProductCard";
 import ShimmerProductCard from "../ShimmerProductCard";
 
-const SpecificProducts = ({ category }) => {
+const SpecificProducts = ({ category, categoryTitle }) => {
   const { isLoading, allProducts } = useSpecificProducts(category);
-  console.log(isLoading, allProducts);
 
   return (
     <section className="my-2">
-      <h1 className="text-center font-bold text-2xl underline mb-2">Grocery</h1>
-      <div className="w-[70vw] mx-auto grid grid-cols-5">
+      <h1 className="text-center font-bold text-2xl underline mb-2">
+        {categoryTitle}
+      </h1>
+      <div className="w-[95vw] md:w-[70vw]  mx-auto grid grid-cols-3 md:grid-cols-5">
         {isLoading
           ? Array(5)
               .fill(null)

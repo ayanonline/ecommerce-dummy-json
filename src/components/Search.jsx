@@ -28,7 +28,7 @@ const Search = () => {
 
   return (
     <div className="relative">
-      <div className="border w-[25vw] p-2 flex rounded-md">
+      <div className="border w-[47vw] md:w-[25vw] p-2 flex rounded-md">
         <CiSearch className="h-6 w-6" />
         <input
           type="text"
@@ -57,15 +57,17 @@ const Search = () => {
                     <img
                       src={item.thumbnail}
                       alt="pimage"
-                      className="h-14 w-14 object-cover rounded-md"
+                      className="h-8 md:h-14 w-8 md:w-14 object-cover rounded-md"
                     />
-                    <span className="ml-6 text-lg font-semibold">
+                    <span className="ml-2 md:ml-6 text-xs md:text-lg font-semibold">
                       {item.title}
                     </span>
                   </div>
                 </Link>
 
-                <span className="font-bold text-lg">${item.price}</span>
+                <span className="font-bold text-sm md:text-lg">
+                  ${item.price}
+                </span>
               </div>
             ))}
           </div>

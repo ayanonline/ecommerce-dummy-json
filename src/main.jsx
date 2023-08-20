@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -6,12 +6,27 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import MainContainer from "./components/containers/MainContainer.jsx";
-import ProductsDetailsContainer from "./components/containers/ProductsDetailsContainer.jsx";
-import ProductsContainer from "./components/containers/ProductsContainer.jsx";
-import CartContainer from "./components/containers/CartContainer.jsx";
-import SpecificProducts from "./components/categories/SpecificProducts.jsx";
-import MultiCategoryProducts from "./components/categories/MultiCategoryProducts.jsx";
-import ShimmerProductCard from "./components/ShimmerProductCard.jsx";
+// import ProductsDetailsContainer from "./components/containers/ProductsDetailsContainer.jsx";
+// import ProductsContainer from "./components/containers/ProductsContainer.jsx";
+// import CartContainer from "./components/containers/CartContainer.jsx";
+// import SpecificProducts from "./components/categories/SpecificProducts.jsx";
+// import MultiCategoryProducts from "./components/categories/MultiCategoryProducts.jsx";
+
+const ProductsDetailsContainer = lazy(() =>
+  import("./components/containers/ProductsDetailsContainer.jsx")
+);
+const ProductsContainer = lazy(() =>
+  import("./components/containers/ProductsContainer.jsx")
+);
+const CartContainer = lazy(() =>
+  import("./components/containers/CartContainer.jsx")
+);
+const SpecificProducts = lazy(() =>
+  import("./components/categories/SpecificProducts.jsx")
+);
+const MultiCategoryProducts = lazy(() =>
+  import("./components/categories/MultiCategoryProducts.jsx")
+);
 
 const router = createBrowserRouter([
   {
@@ -24,56 +39,78 @@ const router = createBrowserRouter([
       },
       {
         path: "products/",
-        element: <ProductsContainer />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <ProductsContainer />
+          </Suspense>
+        ),
       },
       {
         path: "grocery/",
-        element: <SpecificProducts category="groceries" />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <SpecificProducts category="groceries" categoryTitle="Grocery" />
+          </Suspense>
+        ),
       },
       {
         path: "mobiles/",
-        element: <SpecificProducts category="smartphones" />,
-      },
-      {
-        path: "shimmer/",
-        element: <ShimmerProductCard />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <SpecificProducts category="groceries" categoryTitle="Grocery" />
+          </Suspense>
+        ),
       },
       {
         path: "fashion/",
         element: (
-          <MultiCategoryProducts
-            categoryList={[
-              "fragrances",
-              "skincare",
-              "tops",
-              "womens-dresses",
-              "womens-shoes",
-              "mens-shirts",
-              "mens-shoes",
-              "mens-watches",
-              "womens-watches",
-              "womens-bags",
-              "womens-jewellery",
-              "sunglasses",
-            ]}
-          />
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <MultiCategoryProducts
+              categoryList={[
+                "fragrances",
+                "skincare",
+                "tops",
+                "womens-dresses",
+                "womens-shoes",
+                "mens-shirts",
+                "mens-shoes",
+                "mens-watches",
+                "womens-watches",
+                "womens-bags",
+                "womens-jewellery",
+                "sunglasses",
+              ]}
+              categoryTitle="Fashions"
+            />
+          </Suspense>
         ),
       },
       {
         path: "electronics/",
         element: (
-          <MultiCategoryProducts
-            categoryList={["lighting", "laptops", "automotive"]}
-          />
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <MultiCategoryProducts
+              categoryTitle="Electronics"
+              categoryList={["lighting", "laptops", "automotive"]}
+            />
+          </Suspense>
         ),
       },
       {
         path: "products/:productId",
-        element: <ProductsDetailsContainer />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <ProductsDetailsContainer />
+          </Suspense>
+        ),
       },
       {
         path: "cart",
-        element: <CartContainer />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <CartContainer />
+          </Suspense>
+        ),
       },
     ],
   },

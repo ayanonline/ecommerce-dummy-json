@@ -7,9 +7,9 @@ import Search from "./Search";
 const Header = () => {
   const cartQuantity = useSelector((store) => store.cart.length);
   return (
-    <header className="my-4 sticky top-0 bg-white">
-      <div className="w-3/5 mx-auto flex justify-between">
-        <Link to="/" className="text-xl font-bold">
+    <header className="my-4 px-4 sticky top-0 bg-white">
+      <div className="md:w-3/5 mx-auto flex justify-between items-center">
+        <Link to="/" className="text-base md:text-xl font-bold">
           My-shop
         </Link>
         <Search />

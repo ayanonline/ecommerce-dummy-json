@@ -4,7 +4,9 @@ import { categoryList } from "../constant/constant";
 const NavBar = () => {
   return (
     <nav className="flex justify-center items-center">
-      <Link to="/products">All Products</Link>
+      <Link to="/products" className="text-xs md:text-base">
+        All Products
+      </Link>
       {categoryList.map((item) => (
         <NavItem
           key={item.id}
@@ -19,9 +21,18 @@ const NavBar = () => {
 
 const NavItem = ({ title, imgUrl, url }) => {
   return (
-    <Link to={url} className="mx-4 text-center">
-      <img src={imgUrl} alt="category image" className="h-16 w-h-16" />
-      <span className="font-semibold text-gray-500">{title}</span>
+    <Link
+      to={url}
+      className="mx-2 md:mx-4 text-center flex flex-col justify-center items-center"
+    >
+      <img
+        src={imgUrl}
+        alt="category image"
+        className="h-10 md:h-16 w-10 md:w-16"
+      />
+      <span className="text-xs md:text-base font-semibold text-gray-500">
+        {title}
+      </span>
     </Link>
   );
 };

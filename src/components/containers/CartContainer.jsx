@@ -8,7 +8,6 @@ const CartContainer = () => {
   if (cart.length < 1) {
     return null;
   }
-  console.log(cart);
   const totalPrice = cart.reduce(
     (total, product) => total + product.price * product.quantity,
     0

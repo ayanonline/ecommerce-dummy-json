@@ -14,17 +14,17 @@ const ProductsDetailsContainer = () => {
   if (isLoading) return <h1>loading</h1>;
 
   return (
-    <div className="my-20 mx-80 select-none flex h-screen">
+    <div className="md:my-20 md:mx-80 select-none flex flex-col md:flex-row">
       {/* gellary section */}
-      <section className="w-2/4 border h-[66vh]">
+      <section className="w-[90vw] mx-auto md:w-2/4 border ">
         <div>
           <img
             ref={targetImage}
             src={productDetails.images[0]}
             alt="Product image"
-            className="h-[25rem] w-full p-4 object-contain"
+            className="h-[15rem] md:h-[25rem] w-full object-contain"
           />
-          <section className="flex justify-evenly border">
+          <div className="flex justify-evenly border overflow-x-scroll">
             {productDetails.images.map((item, index) => (
               <img
                 key={index}
@@ -36,11 +36,11 @@ const ProductsDetailsContainer = () => {
                 }}
               />
             ))}
-          </section>
+          </div>
         </div>
       </section>
       {/* product details  */}
-      <section className="w-2/4 px-6 flex flex-col">
+      <section className="md:w-2/4 px-6 flex flex-col">
         <span>Home/products/{productId}</span>
         <span>{productDetails.title}</span>
         <span>${productDetails.price}</span>
