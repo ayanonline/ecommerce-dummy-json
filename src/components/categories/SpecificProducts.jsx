@@ -20,7 +20,6 @@ const SpecificProducts = ({ category }) => {
                 <ProductCard data={item} />
               </Link>
             ))}
-        {}
       </div>
     </section>
   );
