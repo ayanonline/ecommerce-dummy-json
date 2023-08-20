@@ -2,7 +2,7 @@ import React from "react";
 
 const ProductCard = ({ data }) => {
   return (
-    <div className="w-56 my-2 mx-6 p-4 border-[1px] border-gray-300 bg-white">
+    <div className="w-56 my-2 mx-4 p-4 border-[1px] border-gray-300 bg-white">
       <img
         src={data.thumbnail}
         alt="product images"

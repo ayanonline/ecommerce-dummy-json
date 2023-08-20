@@ -11,6 +11,7 @@ import ProductsContainer from "./components/containers/ProductsContainer.jsx";
 import CartContainer from "./components/containers/CartContainer.jsx";
 import SpecificProducts from "./components/categories/SpecificProducts.jsx";
 import MultiCategoryProducts from "./components/categories/MultiCategoryProducts.jsx";
+import ShimmerProductCard from "./components/ShimmerProductCard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "mobiles/",
         element: <SpecificProducts category="smartphones" />,
+      },
+      {
+        path: "shimmer/",
+        element: <ShimmerProductCard />,
       },
       {
         path: "fashion/",
