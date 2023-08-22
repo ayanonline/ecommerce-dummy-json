@@ -11,7 +11,7 @@ const MultiCategoryProducts = ({ categoryList, categoryTitle }) => {
       <h1 className="text-center font-bold text-base md:text-2xl underline mb-2">
         {categoryTitle}
       </h1>
-      <div className=" mx-auto w-[95vw] md:w-[70vw] grid grid-cols-3 md:grid-cols-5">
+      <div className=" mx-auto w-[95vw] md:w-[80vw] grid grid-cols-3 md:grid-cols-5">
         {isLoading
           ? Array(10)
               .fill(null)

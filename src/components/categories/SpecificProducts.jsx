@@ -11,7 +11,7 @@ const SpecificProducts = ({ category, categoryTitle }) => {
       <h1 className="text-center font-bold text-2xl underline mb-2">
         {categoryTitle}
       </h1>
-      <div className="w-[95vw] md:w-[70vw]  mx-auto grid grid-cols-3 md:grid-cols-5">
+      <div className="w-[95vw] md:w-[80vw]  mx-auto grid grid-cols-3 md:grid-cols-5">
         {isLoading
           ? Array(5)
               .fill(null)

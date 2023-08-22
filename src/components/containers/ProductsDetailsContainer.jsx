@@ -14,9 +14,9 @@ const ProductsDetailsContainer = () => {
   if (isLoading) return <h1>loading</h1>;
 
   return (
-    <div className="md:my-20 md:mx-80 select-none flex flex-col md:flex-row">
+    <div className="md:my-10 md:mx-80 select-none flex flex-col md:flex-row">
       {/* gellary section */}
-      <section className="w-[90vw] mx-auto md:w-2/4 border ">
+      <section className="w-[90vw] mx-auto md:w-3/4 border ">
         <div>
           <img
             ref={targetImage}
@@ -24,13 +24,13 @@ const ProductsDetailsContainer = () => {
             alt="Product image"
             className="h-[15rem] md:h-[25rem] w-full object-contain"
           />
-          <div className="flex justify-evenly border overflow-x-scroll">
+          <div className="flex px-2 justify-evenly border overflow-x-scroll snap-end scrollbar-none">
             {productDetails.images.map((item, index) => (
               <img
                 key={index}
                 src={item}
                 alt="an image"
-                className="h-24 w-24 m-2 p-2 border object-contain cursor-pointer"
+                className="h-24 w-24 m-2 border object-cover cursor-pointer"
                 onMouseOver={(e) => {
                   targetImage.current.src = e.target.src;
                 }}
@@ -60,7 +60,7 @@ const ProductsDetailsContainer = () => {
               onChange={(e) => {
                 if (+e.target.value != 0) setQuantity(+e.target.value);
               }}
-              className="w-20 text-2xl text-center"
+              className="w-[3rem] outline-none text-2xl text-center"
             />
             <button
               className="p-2 text-3xl"
@@ -70,7 +70,7 @@ const ProductsDetailsContainer = () => {
             </button>
           </div>
           <button
-            className="border ml-4"
+            className="border ml-4 px-4"
             onClick={() => {
               dispatch(addToCart({ ...productDetails, quantity }));
             }}

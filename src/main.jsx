@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         path: "mobiles/",
         element: (
           <Suspense fallback={<h1>Loading...</h1>}>
-            <SpecificProducts category="groceries" categoryTitle="Grocery" />
+            <SpecificProducts category="smartphones" categoryTitle="Mobiles" />
           </Suspense>
         ),
       },
